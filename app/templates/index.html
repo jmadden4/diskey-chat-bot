@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Diskey Chat Bot Home{% endblock %}
+
+ 
+{% block page_content %}
+
+	<div>
+	<p><a id="AskChatBot" class="btn btn-primary" href="#" role="button">Ask the Diskey-Bot a Question</a></p>
+	<p id="ChatBotResponsesLog"></p>
+	</div>
+	<div width=100%>
+		<p>
+		  <img src="{{ url_for('static', filename='loader.gif')}}" width="100px" align="center"  hidden="True" id="loader"></img>
+		</p>	
+	</div>
+
+	<div>	
+		<p id="ChatBotResponses"></p>
+	</div>
+	<div>
+	
+	<button type="button" id="ClearChatBot" class="btn btn-secondary">
+	  Clear Chat Bot Log<span class="badge badge-light"></span>
+	</button>
+	</div>
+
+
+{% endblock %}
