@@ -2,12 +2,15 @@
 $(document).ready(function(){
 	//alert("i made it dinghey");
 	var myJSON = "";
-        
+       
 
 
-	$('#AskChatBot').click(function(){
-	 var question;
-	 $('#loader').show(); 
+
+	$('input#submit.btn.btn-default').click(function(){
+	alert('made it here');
+	$('#loader').show();	 
+	var question;
+	  
 	 $.ajax({
 		
 		url: "/_askChatBot/<id>",
@@ -28,6 +31,28 @@ $(document).ready(function(){
 	 });	
 	}); 
 
+	$('#AskChatBotRandom').click(function(){
+	 var questionRandom;
+	 $('#loader').show(); 
+	 $.ajax({
+		
+		url: "/_askChatBotRandom/<id>",
+		data: {param: questionRandom},
+		type: "POST",
+		success: function(response) {
+			console.log(response);
+			//$('#ChatBotResponsesLog').append(response);
+			
+
+			console.log('Going to fetch a random reply from diskey-bot. please hold while the dingo connects with you');
+			 			
+			run_chat_bot_modelRandom();
+		},
+		error: function(err) {
+			console.log(err);		
+		}
+	 });	
+	}); 
 
 	function run_chat_bot_model(){
 		console.log("Connecting to Chat Bot");
@@ -51,6 +76,31 @@ $(document).ready(function(){
 		}
 	 });
 	}
+
+	function run_chat_bot_modelRandom(){
+		console.log("Connecting to Chat Bot");
+		var questionRandom;		
+		$.ajax({
+		
+		url: "/_fetchFromChatBotRandom/<id>",
+		data: {param: questionRandom},
+		type: "POST",
+		success: function(responseRandom) {
+			$('#loader').hide();
+			console.log(responseRandom);
+			$('#ChatBotResponses').append(responseRandom + "<br/>");
+			
+
+			console.log('A new random response has been loaded from the chat bot model!');
+			
+		},
+		error: function(err) {
+			console.log(err);		
+		}
+	 });
+	}
+
+	
 
 
 	$('#ClearChatBot').click(function(){
@@ -255,5 +305,8 @@ $(document).ready(function(){
 		});
 	}
   */
- }
+ 
+ 	
+
+}
 );

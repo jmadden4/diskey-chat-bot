@@ -1,4 +1,4 @@
-#!/home/joe/workspace/diskey-bot/venv/bin/python
+#!/home/joe/workspace/dog-bot/venv/bin/python
 """PILdriver, an image-processing calculator using PIL.
 
 An instance of class PILDriver is essentially a software stack machine

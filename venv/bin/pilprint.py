@@ -1,4 +1,4 @@
-#!/home/joe/workspace/diskey-bot/venv/bin/python
+#!/home/joe/workspace/dog-bot/venv/bin/python
 #
 # The Python Imaging Library.
 # $Id$
